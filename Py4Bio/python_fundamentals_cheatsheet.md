@@ -46,11 +46,22 @@ print("Random DNA sequence:", random_seq)
 
 ## 🌟 Data Types
 
+## 📝 String Formatting
+
+### f-strings (Python 3.6+)
+
 ```python
-count = 1500          # int
-concentration = 0.3   # float
-gene = "lacZ"         # str
-is_expressed = True   # bool
+name = "lacZ"
+length = 1023
+print(f"Gene {name} is {length} bp long")
+```
+
+### % Formatting
+
+```python
+name = "lacZ"
+length = 1023
+print("Gene %s is %d bp long" % (name, length))
 ```
 
 Check type:
@@ -60,6 +71,7 @@ print(type(gene))  # <class 'str'>
 ```
 
 ## ➕ Operators
+
 ```python
 # Comparison operators
 5 == 5      # True (equal)
@@ -71,6 +83,7 @@ print(type(gene))  # <class 'str'>
 ```
 
 ### Integer vs. Float Example
+
 ```python
 a = 3      # int
 b = 3.0    # float
@@ -80,6 +93,7 @@ print(type(b))     # <class 'float'>
 ```
 
 ### Division Example
+
 ```python
 print(10 / 3)   # 3.333... (float division)
 print(10 // 3)  # 3 (integer division)
@@ -114,8 +128,14 @@ unique_genes = set(["lacZ", "recA", "lacZ"])
 ### for loop
 
 ```python
+genes = ["lacZ", "araC", "recA"]
 for gene in genes:
     print("Gene:", gene)
+
+# Another example: printing nucleotide positions
+sequence = "ATGCGT"
+for i in range(len(sequence)):
+    print("Position", i, ":", sequence[i])
 ```
 
 ### while loop
@@ -153,7 +173,9 @@ else:
 with open("sequence.txt") as f:
     for line in f:
         if not line.startswith(">"):
-            print(line.strip())
+            line = line.strip()
+            for base in line:
+                print("Base:", base)
 ```
 
 ### Write to File
@@ -188,7 +210,11 @@ def gc_content(seq):
 def read_fasta(path):
     with open(path) as f:
         lines = f.readlines()
-    return ''.join(line.strip() for line in lines if not line.startswith(">"))
+    seq = ""
+    for line in lines:
+        if not line.startswith(">"):
+            seq += line.strip()
+    return seq
 
 def gc_content(seq):
     gc = seq.count("G") + seq.count("C")
@@ -205,7 +231,7 @@ print("GC content:", gc, "%")
 
 ## 🎓 Summary
 
-- Basic math and `math` module
+- Basic math and `math`, `random` modules
 - Data types and structures
 - Loops and conditionals
 - File I/O
