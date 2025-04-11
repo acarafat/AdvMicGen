@@ -1,19 +1,32 @@
-# 🧬 Python for Biologists – 1-Hour Crash Course Cheatsheet
+# 🧪 Python for Biologists – Worksheet
 
-## 🔢 Python as a Calculator
+This worksheet is an extended, hands-on journey through Python basics for biologists. Designed for 1 hours of interactive learning with examples and exercises. Each block is followed by a small task or thought experiment.
+
+---
+
+## 🧮 1. Python as a Calculator
 
 ```python
-# Basic arithmetic
 5 + 2        # 7
 9 - 4        # 5
 3 * 4        # 12
 10 / 3       # 3.33...
 10 // 3      # 3 (integer division)
-2 ** 4       # 16 (exponentiation)
-17 % 5       # 2 (modulus)
+2 ** 4       # 16
+17 % 5       # 2
 ```
 
-### Biology Example
+### Common Math Operations
+
+- `+`: addition
+- `-`: subtraction
+- `*`: multiplication
+- `/`: float division
+- `//`: integer division
+- `%`: modulo (remainder)
+- `**`: exponentiation
+
+**🧪 Task:** Calculate molecular weight of a DNA strand using `sum()` and dictionary lookup.
 
 ```python
 dna_base_masses = {'A': 313.2, 'T': 304.2, 'G': 329.2, 'C': 289.2}
@@ -22,84 +35,174 @@ mass = sum(dna_base_masses[base] for base in sequence)
 print("DNA mass:", mass)
 ```
 
-## 🖐 math Module
+---
+
+## 🖐️ 2. math Module
 
 ```python
 import math
-math.log10(2000000)  # Log10 of population
-math.sqrt(36)        # Square root
+print(math.log10(2000000))  # Log10 of population
+print(math.sqrt(36))        # Square root
+print(math.exp(2))          # Exponential
 ```
 
-## 🎲 random Module
+### Common Functions in `math`
+
+- `math.sqrt(x)`: square root
+- `math.exp(x)`: e^x
+- `math.log(x, base)`: logarithm with custom base (base 10 = `math.log10()`)
+- `math.pi`: π constant
+
+**🧪 Task:** Use `math.log()` with different bases (e.g., natural log).
+
+---
+
+## 🎲 3. random Module
 
 ```python
 import random
-# Random nucleotide choice
-base = random.choice(["A", "T", "G", "C"])
-print("Random base:", base)
-
-
-# Generate a random 10-base DNA sequence
-random_seq = ''.join(random.choices(["A", "T", "G", "C"], k=10))
-print("Random DNA sequence:", random_seq)
+print(random.choice(["A", "T", "G", "C"]))
+print(''.join(random.choices(["A", "T", "G", "C"], k=10)))
 ```
 
-## 🌟 Data Types
+### Useful `random` Methods & Examples
 
-## 📝 String Formatting
+- `random.random()`: random float [0.0, 1.0)
+- `random.randint(a, b)`: random int between a and b
+- `random.choice(list)`: pick one item
+- `random.choices(list, k=n)`: pick n items with replacement
+- `random.shuffle(list)`: shuffle in-place
 
-### f-strings (Python 3.6+)
+**🧪 Task:** Generate a 50-base random DNA sequence.
+
+---
+
+## 🌟 4. Data Types and Formatting
+
+Python has several built-in data types. Here are the most commonly used ones:
+
+### Integers (`int`)
+Whole numbers without a decimal point.
+```python
+a = 42
+print(type(a))  # <class 'int'>
+```
+**Useful `int` methods/functions:**
+```python
+print(bin(10))  # '0b1010' (binary)
+print(int("1010"))  # Convert string to integer
+```
+
+### Floating-point numbers (`float`)
+Numbers with decimal points.
+```python
+b = 3.14
+print(type(b))  # <class 'float'>
+```
+**Methods/Functions:**
+```python
+print(round(3.14159, 2))  # 3.14
+print(float("3.5"))  # Convert string to float
+```
+
+### Strings (`str`)
+Text or characters inside quotes.
+```python
+name = "lacZ"
+print(type(name))  # <class 'str'>
+```
+**Useful `str` methods:**
+```python
+print(name.upper())   # 'LACZ'
+print(name.lower())   # 'lacz'
+print(name.startswith("la"))  # True
+print(name.replace("Z", "Y"))  # 'lacY'
+```
+
+### String Formatting Examples
+```python
+gene = "trpE"
+expr = 8.4567
+print(f"{gene} expression: {expr:.2f}")
+print("%s expression: %.2f" % (gene, expr))
+```
+
+### Comparing Data Types
+```python
+a = 3
+b = 3.0
+print(a == b)              # True (same value)
+print(type(a), type(b))    # <class 'int'> <class 'float'>
+```
+
+### Integer Division vs Float Division
+```python
+print(10 / 3)   # 3.3333 (float division)
+print(10 // 3)  # 3 (integer division)
+```
+
+**🧪 Task:** Format expression level to two decimal places using both f-string and %% formatting. Try converting a float string to a number.
 
 ```python
 name = "lacZ"
 length = 1023
 print(f"Gene {name} is {length} bp long")
-```
-
-### % Formatting
-
-```python
-name = "lacZ"
-length = 1023
 print("Gene %s is %d bp long" % (name, length))
 ```
 
-Check type:
-
 ```python
-print(type(gene))  # <class 'str'>
+a = 3
+b = 3.0
+print(a == b)              # True in value
+print(type(a), type(b))    # int vs float
 ```
 
-## ➕ Operators
+### String Formatting Examples
 
 ```python
-# Comparison operators
-5 == 5      # True (equal)
-5 != 3      # True (not equal)
-10 > 3      # True (greater than)
-10 >= 10    # True (greater than or equal)
-2 < 5       # True (less than)
-3 <= 3      # True (less than or equal)
+gene = "trpE"
+expr = 8.4567
+print(f"{gene} expression: {expr:.2f}")
+print("%s expression: %.2f" % (gene, expr))
 ```
 
-### Integer vs. Float Example
+**🧪 Task:** Format expression level to two decimal places using f-string.
+
+---
+
+## ➗ 5. Operators and Comparisons
 
 ```python
-a = 3      # int
-b = 3.0    # float
-print(a == b)      # True (value equal)
-print(type(a))     # <class 'int'>
-print(type(b))     # <class 'float'>
+5 == 5       # True
+5 != 3       # True
+10 > 3       # True
+10 >= 10     # True
+2 < 5        # True
+3 <= 3       # True
 ```
 
-### Division Example
-
 ```python
-print(10 / 3)   # 3.333... (float division)
+print(10 / 3)   # 3.3333 (float division)
 print(10 // 3)  # 3 (integer division)
 ```
 
-## 🛦 Data Structures
+### Operator Types & Examples
+
+- Arithmetic: `+`, `-`, `*`, `/`, `//`, `%`, `**`
+- Comparison: `==`, `!=`, `<`, `>`, `<=`, `>=`
+- Logical: `and`, `or`, `not`
+
+```python
+expr = 2.5
+if expr >= 2 and expr <= 10:
+    print("Valid expression range")
+```
+
+**🧪 Task:** Write a condition to check if a GC% is above 50.
+
+---
+
+## 📃 6. Data Structures
 
 ### Lists
 
@@ -109,133 +212,134 @@ genes.append("trpE")
 print(genes[1])
 ```
 
+#### Useful List Methods & Examples
+
+```python
+genes.remove("recA")
+print(genes)
+print(len(genes))
+print(sorted(genes))
+```
+
 ### Dictionaries
 
 ```python
-gene_lengths = {"lacZ": 1023, "araC": 876}
-gene_lengths["recA"] = 1170
+expression = {"lacZ": 5.2, "araC": 2.9}
+print(expression["lacZ"])
+expression["recA"] = 4.7
 ```
 
-### Tuples and Sets
+#### Useful Dictionary Methods
 
 ```python
-codon = ("A", "T", "G")
-unique_genes = set(["lacZ", "recA", "lacZ"])
+print(expression.keys())
+print(expression.values())
+print(expression.items())
 ```
 
-## 🔀 Loops
+### Tuples
 
-### for loop
+```python
+coords = (5, 10)
+print(coords[0])
+```
+
+---
+
+## 🔁 7. Loops
+
+### For Loops
+
+```python
+dna = "ATGCGT"
+for base in dna:
+    print(base)
+```
 
 ```python
 genes = ["lacZ", "araC", "recA"]
 for gene in genes:
-    print("Gene:", gene)
-
-# Another example: printing nucleotide positions
-sequence = "ATGCGT"
-for i in range(len(sequence)):
-    print("Position", i, ":", sequence[i])
+    print(gene.upper())
 ```
 
-### while loop
+### List Comprehension (One-liner loop)
+
+A compact way to generate or transform lists.
 
 ```python
-count = 0
-while count < 3:
-    print("Cycle", count)
-    count += 1
+# Get lengths of all sequences in a list
+sequences = ["ATGC", "GGTACC", "T"]
+lengths = [len(seq) for seq in sequences]
+print(lengths)  # [4, 6, 1]
 ```
 
-### range()
-
 ```python
-for i in range(1, 4):
-    print("Sample", i)
+# Convert all gene names to lowercase
+genes = ["LACZ", "ARAC", "RECA"]
+lowercase_genes = [gene.lower() for gene in genes]
+print(lowercase_genes)
 ```
 
-## ⚖️ Conditionals
+### While Loops
 
 ```python
-if expression_level > 2.0:
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
+
+**🧪 Task:** Iterate through a list of DNA sequences and print their lengths.
+
+---
+
+## ❓ 8. Conditionals
+
+```python
+expression = 4.5
+if expression > 5:
     print("Highly expressed")
-elif expression_level > 1.0:
+elif expression > 2:
     print("Moderately expressed")
 else:
     print("Low expression")
 ```
 
-## 📂 File Handling
+---
 
-### Read FASTA
+## 📂 9. File Handling
 
-```python
-with open("sequence.txt") as f:
-    for line in f:
-        if not line.startswith(">"):
-            line = line.strip()
-            for base in line:
-                print("Base:", base)
-```
-
-### Write to File
+### Writing
 
 ```python
-with open("output.txt", "w") as f:
-    f.write("Gene: lacZ\n")
+with open("genes.txt", "w") as file:
+    file.write("lacZ\naraC\nrecA")
 ```
 
-## 📚 Functions and Keywords
-
-### Define a Function
+### Reading
 
 ```python
-def gc_content(seq):
-    gc = seq.count("G") + seq.count("C")
-    return gc / len(seq) * 100
+with open("genes.txt", "r") as file:
+    for line in file:
+        print(line.strip())
 ```
 
-### Common Keywords
+**🧪 Task:** Write a FASTA header and sequence to a file.
 
+---
+
+## 🔍 10. Frequently Used Keywords
+
+### Keywords to Recognize
+
+- `if`, `else`, `elif`
+- `for`, `while`, `break`, `continue`
 - `def`, `return`
-- `if`, `elif`, `else`
-- `for`, `while`, `in`
-- `import`, `with`, `as`
-- `True`, `False`, `None`
-- `break`, `continue`, `pass`
+- `import`, `as`, `from`
+- `with`, `open`, `in`, `not`, `and`, `or`, `is`
+- `True`, `False`, `None`, `class`, `try`, `except`
 
-## 🔬 Mini Project: GC Content from FASTA
+---
 
-```python
-def read_fasta(path):
-    with open(path) as f:
-        lines = f.readlines()
-    seq = ""
-    for line in lines:
-        if not line.startswith(">"):
-            seq += line.strip()
-    return seq
 
-def gc_content(seq):
-    gc = seq.count("G") + seq.count("C")
-    return round((gc / len(seq)) * 100, 2)
-
-sequence = read_fasta("sequence.txt")
-gc = gc_content(sequence)
-
-with open("gc_output.txt", "w") as f:
-    f.write(f"GC content: {gc}%\n")
-
-print("GC content:", gc, "%")
-```
-
-## 🎓 Summary
-
-- Basic math and `math`, `random` modules
-- Data types and structures
-- Loops and conditionals
-- File I/O
-- Functions and common keywords
-
-Happy coding! 🧬
 
