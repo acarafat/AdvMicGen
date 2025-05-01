@@ -31,6 +31,7 @@ The command line is a text-based way to interact with your computer. You type co
     * `ls`: Basic, simple listing.
     * `ls -l`: **L**ong listing format (shows permissions, owner, size, modification date).
     * `ls -lh`: Long listing with **h**uman-readable file sizes (e.g., KB, MB, GB). Very useful!
+    * `ls -lt`: Files ordered based on the time they were last changed.
     * `ls -a`: Lists **a**ll files, including hidden files (names starting with a dot `.`, like configuration files).
     ```bash
     ls
@@ -122,6 +123,7 @@ e. Use `cd ~` to ensure you are in your home directory.
 
 5.  `rm <filename>` (Remove)
     * Deletes a file. **USE WITH EXTREME CAUTION! There is usually NO UNDO or trash bin.** Double-check before pressing Enter.
+    * `rm -f <file_name>`: Removes a file without confirming to the user. **CAUTION**
     * `rm -r <directory_name>`: Removes a directory and all its contents **r**ecursively. **EVEN MORE CAUTION!**
     * `rm -i <filename>`: Interactive mode, prompts for confirmation before deleting each file. Safer option.
     ```bash
