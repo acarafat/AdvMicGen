@@ -580,6 +580,140 @@ e. Type `projectdir` and press Enter. Use `pwd` to verify that the alias took yo
 
 ---
 
+### Part 9: Unix Wildcards
+Wildcards are special characters used in Unix-like operating systems to represent one or more other characters in a filename or path. They are incredibly useful for working with multiple files at once using commands like `ls` (list files), `cp` (copy files), `mv` (move/rename files), and `rm` (remove files).
+
+**The most common wildcards are:**
+
+* `*`: Matches any sequence of characters (including no characters).
+* `?`: Matches any single character.
+* `[]`: Matches any single character within the square brackets. Can specify a range (e.g., `[a-z]`, `[0-9]`).
+* `[^]`: Matches any single character NOT within the square brackets.
+
+Let's look at some examples:
+
+---
+
+### Example 1: Using `*` (The Asterisk)
+
+The asterisk is the most flexible wildcard. It matches zero or more characters.
+
+* **To list all files in the current directory:**
+    ```bash
+    ls *
+    ```
+* **To list all files ending with `.txt`:**
+    ```bash
+    ls *.txt
+    ```
+* **To list all files starting with `data_`:**
+    ```bash
+    ls data_*
+    ```
+* **To list all files containing the word "report" in their name:**
+    ```bash
+    ls *report*
+    ```
+
+* **Bioinformatics Example:** You have several DNA sequence files in FASTA format, some ending in `.fasta` and some in `.fa`.
+    * To list all FASTA files:
+        ```bash
+        ls *.fasta *.fa
+        ```
+        or
+        ```bash
+        ls *.fa*
+        ```
+    * To copy all `.fastq` files from the current directory to a new directory called `raw_reads`:
+        ```bash
+        cp *.fastq raw_reads/
+        ```
+
+---
+
+### Example 2: Using `?` (The Question Mark)
+
+The question mark matches exactly one character.
+
+* **To list files named `gene_1.txt`, `gene_2.txt`, but not `gene_10.txt`:**
+    ```bash
+    ls gene_?.txt
+    ```
+* **To list files like `sampleA.csv` and `sampleB.csv` but not `sampleABC.csv`:**
+    ```bash
+    ls sample?.csv
+    ```
+
+* **Bioinformatics Example:** You have a series of output files from a tool, named `align_output_1.sam`, `align_output_2.sam`, ..., `align_output_9.sam`, and `align_output_10.sam`.
+    * To list only the output files from 1 to 9:
+        ```bash
+        ls align_output_?.sam
+        ```
+
+---
+
+### Example 3: Using `[]` (Square Brackets)
+
+Square brackets match any single character within the brackets. You can specify a list of characters or a range.
+
+* **To list files named `report_2023.csv` and `report_2024.csv`:**
+    ```bash
+    ls report_202[34].csv
+    ```
+* **To list files starting with a lowercase letter:**
+    ```bash
+    ls [a-z]*
+    ```
+* **To list files ending with a digit:**
+    ```bash
+    ls *[0-9]
+    ```
+
+* **Bioinformatics Example:** You have sequencing data files from different lanes, named `lane_1_read1.fastq`, `lane_2_read1.fastq`, `lane_A_read1.fastq`.
+    * To list read 1 files only from lanes 1, 2, and 3 (if they exist):
+        ```bash
+        ls lane_[123]_read1.fastq
+        ```
+    * To list read 1 files from lanes with a single uppercase letter identifier:
+        ```bash
+        ls lane_[A-Z]_read1.fastq
+        ```
+
+---
+
+### Example 4: Using `[^]` (Negating Square Brackets)
+
+This matches any single character NOT within the square brackets.
+
+* **To list all files in the directory except those starting with a number:**
+    ```bash
+    ls [^0-9]*
+    ```
+* **To list files that do not end with `.fasta`:**
+    ```bash
+    ls *[^a].fasta # This is a bit tricky and less common for extensions.
+    ```
+    (A more typical way to exclude file types involves other commands or more complex patterns, but this demonstrates the `[^]` concept).
+
+* **Bioinformatics Example:** You have various sequence files, but you want to list only those that are *not* `.fasta` or `.fastq`.
+    * This is a more advanced use case and often better handled with other tools or combined patterns. A direct application of `[^]` for this specific scenario across the *entire* extension is not straightforward with just wildcards. However, you could use it to exclude specific characters *within* a filename pattern. For instance, to list files in a directory that do not have a digit immediately following an underscore:
+        ```bash
+        ls *_[^0-9]*
+        ```
+        This might help find files with different naming conventions.
+
+---
+
+### Practice:
+
+1.  List all files in your current directory that end with `.fna` (a common extension for genome sequences).
+2.  You have alignment files named `sample_A.sam`, `sample_B.sam`, and `sample_C.sam`. List only `sample_A.sam` and `sample_C.sam` using `[]`.
+3.  You have many result files, some of which have a single digit after an underscore (e.g., `result_1.txt`, `result_5.txt`), and others have two digits (e.g., `result_10.txt`, `result_25.txt`). List only the files with a single digit after the underscore using `?`.
+4.  List all files in your directory that do NOT start with the letter 'a' or 'b'.
+
+---
+
+
 **Conclusion**
 
 You've now covered the fundamentals of the Unix/Bash command line, including navigation, file management, downloading, the power of piping, text processing with `grep`, `sed`, and `awk`, basic scripting constructs, and environment configuration. These are essential skills for tackling bioinformatics analyses efficiently and reproducibly.
