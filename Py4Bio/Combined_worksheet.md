@@ -9,6 +9,10 @@ And try to do the exercises. Learning to programming is like building muscle, yo
 
 There are four chapters in this PDF:
 Chapter 1:  Python for Biologists 
+Chapter 2: Introduction to Functions in Python
+Chapter 3: Data Science with Python
+Chapter 4: Introduction to Object-Orientered Programming (OOP) in Python
+Chapter 5: Introduction to Unix for Bioinformatics
 
 
  <div style="page-break-after: always;"></div>
