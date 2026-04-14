@@ -13,6 +13,7 @@ Depending on your operating system, follow the steps below to access the server'
 3. Click **Open**. When prompted, enter your ONID username and password.
 4. **Note:** You will likely be prompted for Duo Two-Factor Authentication (2FA) on your phone. Approve it to finish logging in.
 5. Once signed in, select **ltpb_s26** ACTF class when prompted.
+
 #### For Mac/Linux Users:
 1. Open the **Terminal** application.
 2. Connect by typing the following command (replace ONID with your actual username) and press Enter:
@@ -51,7 +52,9 @@ cd sequence_assembly
 ```
 
 #### 4. Let's play an UNIX game
-Game set-up. Copy the game file in your working directory, extract it.
+Little Brother is missing! He must have run off in last night's storm.
+
+Game set-up: Copy the game file in your working directory, extract it.
 
 ```
 cd
@@ -62,9 +65,12 @@ ls
 
 You will see an new directory, `activity_2_directory_treasure_hunt`. Go to the directory and follow instructions.
 
+Check out the folders. You may want to read the stuff in the home_sweet_home folder and the_zoo first.
+
 ```
 cd activity_2_directory_treasure_hunt
 less instructions.txt
+tree
 ```
 
 
