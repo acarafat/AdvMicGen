@@ -108,8 +108,10 @@ We use quantitative metrics to evaluate assemblies:
 ### Run QUAST:
 Return to your terminal and ensure you are in the `sequence_assembly` directory:
 ```
-quast.py spades_output/contigs.fasta /path/to/shared/data/flye_assembly.fasta -o quast_results
+quast.py spades_output/contigs.fasta -o quast_shortread_results
+quast.py /path/to/shared/data/flye_assembly.fasta -o quast_longread_results
 ```
+
 # View the results
 cat quast_results/report.txt
 Locate the rows for **Total length** and **N50** in the table.
