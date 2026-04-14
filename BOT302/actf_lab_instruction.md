@@ -50,6 +50,24 @@ mkdir sequence_assembly
 cd sequence_assembly
 ```
 
+#### 4. Let's play an UNIX game
+Game set-up. Copy the game file in your working directory, extract it.
+
+```
+cd
+cp /nfs5/ACTF/Course/ltpb_s26/data/activity_directory_treasure_hunt.zip .
+unzip activity_directory_treasure_hunt.zip
+ls
+```
+
+You will see an new directory, `activity_2_directory_treasure_hunt`. Go to the directory and follow instructions.
+
+```
+cd activity_2_directory_treasure_hunt
+less instructions.txt
+```
+
+
 ## Part 3: Short-Read Assembly with SPAdes
 SPAdes is a popular genome assembler designed specifically for small genomes and short-read data (like Illumina).
 > **Instructor Note:** The paths below (`/path/to/reads/...`) are placeholders. Replace it with actual raw input from data folder, i.e. `/nfs5/ACTF/Course/ltpb_s26/data/week02_W`
