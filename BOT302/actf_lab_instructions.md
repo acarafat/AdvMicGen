@@ -98,7 +98,7 @@ SPAdes is a popular genome assembler designed specifically for small genomes and
 1. **Run the SPAdes Assembler:** We will provide SPAdes with our forward (_R1) and reverse (_R2) Illumina reads.
 ```
 salloc -N 4 # Checking out four nodes
-spades.py -1 /path/to/reads/illumina_R1.fastq.gz -2 /path/to/reads/illumina_R2.fastq.gz -o spades_output
+spades.py -1 ~/../../data/week02_W/19AcAY341.1.2_R1_fastp_filtered.fastq.gz -2 ~/../../data/week02_W/19AcAY341.1.2_R2_fastp_filtered.fastq.gz -o spades_output
 ```
 2. **Wait for the assembly to finish:** Assembly is computationally intensive and may take several minutes.
 3. **Check your output:**
@@ -112,13 +112,13 @@ We will use the command-line version of Bandage to generate an image of our asse
 ### 4.1 Generate the Plot
 While inside your `spades_output` directory, run the following command to create a PNG image of your assembly:
 ```
-Bandage plot assembly_graph.gfa spades_plot.png
+Bandage plot assembly_graph_with_scaffolds.gfa spades_plot.png
 ```
 ### 4.2 Generate the Long-Read Plot
 Your instructor has pre-computed a long-read assembly. Generate a plot for that assembly as well (replace the path with the one provided in class):
 
 ```
-Bandage plot /path/to/shared/data/flye_assembly.gfa flye_plot.png
+Bandage plot ~/../../data/week02_W/long_only_assem/assembly_graph.gfa flye_plot.png
 ```
 
 ## Part 5: Transferring Results to Your Computer
@@ -151,7 +151,7 @@ We use quantitative metrics to evaluate assemblies:
 Return to your terminal and ensure you are in the `sequence_assembly` directory:
 ```
 quast.py spades_output/contigs.fasta -o quast_shortread_results
-quast.py /path/to/shared/data/flye_assembly.fasta -o quast_longread_results
+quast.py ~/../../data/week02_W/long_only_assem/flye_assembly.fasta -o quast_longread_results
 ```
 
 # View the results
