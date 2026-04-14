@@ -70,9 +70,8 @@ Check out the folders. You may want to read the stuff in the home_sweet_home fol
 ```
 cd activity_2_directory_treasure_hunt
 less instructions.txt
-tree
 ```
-![Alt text](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/little_brother.png?raw=true)
+
 
 ## Part 3: Short-Read Assembly with SPAdes
 SPAdes is a popular genome assembler designed specifically for small genomes and short-read data (like Illumina).
