@@ -30,18 +30,18 @@ Before we run our assembly, let's get familiar with a few basic UNIX commands. T
 - `cd ..`: Moves you **up** one directory level.
 ### Task:
 
-# 1. Inspect raw input files for assembly
+#### 1. Inspect raw input files for assembly
 ```
 cd /nfs5/ACTF/Course/ltpb_s26/data/week02_W
 ls
 ```
 
-# 2. Go back to your home folder
+#### 2. Go back to your home folder
 ```
 cd ~
 ```
 
-# 3. Create a directory for today's lab and move into it
+#### 3. Create a directory for today's lab and move into it
 ```
 mkdir sequence_assembly
 cd sequence_assembly
@@ -62,36 +62,44 @@ cd spades_output
 ls
 ```
 Look for `assembly_graph.gfa` (for Bandage) and `contigs.fasta` (the assembled DNA sequences).
-## Part 4: Visualizing and Transferring the Assembly Graph
-Since we cannot view graphics in the terminal, we must transfer the .gfa file to your personal computer.
-### 4.1 Connect via FileZilla
-1. Open **FileZilla**.
-2. Fill in the top connection details:
-- **Host:** `sftp://shell.actf.oregonstate.edu` (the `sftp://` is required)
-- **Username:** Your ONID username
-- **Password:** Your ONID password
-- **Port:** `22`
-3. Click **Quickconnect**.
-> **PRO-TIP for Two-Factor Authentication (2FA):**
-If FileZilla times out, go to **File > Site Manager**. Create a **New Site**, but change the "Logon Type" to **Interactive**. Connect, and a window will pop up for your Duo prompt.
-### 4.2 Transfer the Files
-1. **Left Side (Local):** Navigate to your Desktop.
-2. **Right Side (Server):** Navigate to `sequence_assembly/spades_output/`.
-3. Drag and drop `assembly_graph.gfa` from the right to the left.
-### 4.3 Visualize with Bandage
-1. Open **Bandage**.
-2. Go to **File > Load graph** and select `assembly_graph.gfa`.
-3. Click **Draw graph** on the left panel.
-4. Go to **File > Save image** to save your Illumina assembly plot.
-## Part 5: Comparing Short-Read vs. Long-Read Assemblies
-- **Short reads (Illumina):** Highly accurate but struggle with repetitive regions, resulting in a **fragmented** graph.
-- **Long reads (Nanopore):** Higher error rates but can span repetitive regions, often resulting in a **single, circular** chromosome.
-### 5.1 Transfer the Premade Flye Assembly
-1. In FileZilla, navigate to the class shared folder: `/path/to/shared/data/` (provided by instructor).
-2. Locate and download `flye_assembly.gfa`.
-### 5.2 Visualize the Flye Assembly
-1. Open **Bandage**, load `flye_assembly.gfa`, and click **Draw graph**.
-2. Save a plot of this graph as well.
+## Part 4: Visualizing the Assembly Graph via Command Line
+We will use the command-line version of Bandage to generate an image of our assembly graph directly on the server.
+### 4.1 Generate the Plot
+While inside your `spades_output` directory, run the following command to create a PNG image of your assembly:
+```
+Bandage plot assembly_graph.gfa spades_plot.png
+```
+### 4.2 Generate the Long-Read Plot
+Your instructor has pre-computed a long-read assembly. Generate a plot for that assembly as well (replace the path with the one provided in class):
+
+```
+Bandage plot /path/to/shared/data/flye_assembly.gfa flye_plot.png
+```
+
+## Part 5: Transferring Results to Your Computer
+
+### 5.1 Connecting with FileZilla
+Open FileZilla.
+Fill in the connection details:
+```
+Host: sftp://shell.actf.oregonstate.edu
+Username: Your ONID username
+Password: Your ONID password
+Port: 22
+```
+
+Click Quickconnect.
+
+[!TIP]
+PRO-TIP for Two-Factor Authentication (2FA):
+If FileZilla times out, go to File > Site Manager. Create a New Site, set "Logon Type" to Interactive, and connect.
+
+### 5.2 Transfer the Files
+
+Left Side (Local): Navigate to your Desktop or Lab folder.
+Right Side (Server): Navigate to sequence_assembly/spades_output/.
+Drag and drop spades_plot.png and flye_plot.png to your computer.
+
 ## Part 6: Evaluating Assembly Quality and Calculating N50
 We use quantitative metrics to evaluate assemblies:
 - **Total Length:** Sum of all assembled sequence lengths.
