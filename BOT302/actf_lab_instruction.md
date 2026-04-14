@@ -16,7 +16,9 @@ Depending on your operating system, follow the steps below to access the server'
 #### For Mac/Linux Users:
 1. Open the **Terminal** application.
 2. Connect by typing the following command (replace ONID with your actual username) and press Enter:
+```
 ssh ONID@shell.actf.oregonstate.edu
+```
 3. Enter your password when prompted (characters will not appear on the screen as you type—this is normal).
 4. Approve the Duo Two-Factor Authentication (2FA) prompt sent to your phone.
 5. Once signed in, select **ltpb_s26** ACTF class when prompted.
@@ -28,7 +30,8 @@ Before we run our assembly, let's get familiar with a few basic UNIX commands. T
 - `mkdir assembly_lab` (**M**ake **D**irectory): Creates a new folder.
 - `cd assembly_lab` (**C**hange **D**irectory): Moves you inside a folder.
 - `cd ..`: Moves you **up** one directory level.
-### Task:
+
+### Tasks:
 
 #### 1. Inspect raw input files for assembly
 ```
@@ -90,14 +93,12 @@ Port: 22
 
 Click Quickconnect.
 
-[!TIP]
-PRO-TIP for Two-Factor Authentication (2FA):
-If FileZilla times out, go to File > Site Manager. Create a New Site, set "Logon Type" to Interactive, and connect.
+Two-Factor Authentication (2FA): If FileZilla times out, go to File > Site Manager. Create a New Site, set "Logon Type" to Interactive, and connect.
 
 ### 5.2 Transfer the Files
 
-Left Side (Local): Navigate to your Desktop or Lab folder.
-Right Side (Server): Navigate to sequence_assembly/spades_output/.
+Left Side (Local): Navigate to your `Desktop` or other destination.
+Right Side (Server): Navigate to `sequence_assembly/spades_output/`.
 Drag and drop spades_plot.png and flye_plot.png to your computer.
 
 ## Part 6: Evaluating Assembly Quality and Calculating N50
