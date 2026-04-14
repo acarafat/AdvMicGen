@@ -9,10 +9,15 @@ To perform sequence assembly, we will use a high-performance computing (HPC) clu
 Depending on your operating system, follow the steps below to access the server's command line:
 #### For Windows Users:
 1. Download and install [PuTTY](https://www.putty.org/).
-2. Open PuTTY. In the **Host Name** box, type: `shell.actf.oregonstate.edu`
-3. Click **Open**. When prompted, enter your ONID username and password.
-4. **Note:** You will likely be prompted for Duo Two-Factor Authentication (2FA) on your phone. Approve it to finish logging in.
-5. Once signed in, select **ltpb_s26** ACTF class when prompted.
+
+![https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture1.png?raw=true](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture1.png?raw=true)
+
+3. Open PuTTY. In the **Host Name** box, type: `shell.actf.oregonstate.edu`
+4. Click **Open**. When prompted, enter your ONID username and password.
+5. **Note:** You will likely be prompted for Duo Two-Factor Authentication (2FA) on your phone. Approve it to finish logging in.
+6. Once signed in, select **ltpb_s26** ACTF class when prompted.
+
+![https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture2.png?raw=true](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture2.png?raw=true)
 
 #### For Mac/Linux Users:
 1. Open the **Terminal** application.
@@ -23,6 +28,9 @@ ssh ONID@shell.actf.oregonstate.edu
 3. Enter your password when prompted (characters will not appear on the screen as you type—this is normal).
 4. Approve the Duo Two-Factor Authentication (2FA) prompt sent to your phone.
 5. Once signed in, select **ltpb_s26** ACTF class when prompted.
+
+![https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture3.png?raw=true](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture3.png?raw=true)
+
 ## Part 2: Introduction to UNIX Command Line Basics
 Before we run our assembly, let's get familiar with a few basic UNIX commands. The command line is a text-based way to navigate files and run programs.
 ### Basic Commands:
@@ -54,6 +62,16 @@ cd sequence_assembly
 #### 4. Let's play an UNIX game
 Little Brother is missing! He must have run off in last night's storm.
 
+In this Exercise we will practice navigating a file system using a command line interface. That could be pretty boring - and therefore hard to practice. Dr. Jesse Zaneveld has put together a set of files and folders that you can download that tell a story. In this case, it's a story of your little brother, who has left your village on his bike and headed for the spooooooooky mansion up the hill.
+
+Each directory will represent a certain place (the village, your house, a secret passageway, etc) and the text files in them will represent things you can find (a unicorn, a magical mushroom, your lost brother).
+
+Your goal is to map the mansion, find your brother, and move the little_brother.txt file back to the folder representing your home in the village. Along the way you can also find the sword Excalibur, return a lost animal to the zoo, and assemble ingredients for a tasty mushroom stew.
+
+In accomplishing this goal, you are only allowed to use commands that you type into your command line interface. After all, that's the point :).
+
+![https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture4.jpg?raw=true](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture4.jpg?raw=true)
+
 Game set-up: Copy the game file in your working directory, extract it.
 
 ```
@@ -72,6 +90,7 @@ cd activity_2_directory_treasure_hunt
 less instructions.txt
 ```
 
+When you find your little brother (represented by 'little_brother.txt') you can move it back to your starting location using mv commands. For example, mv little_brother.txt .. moves his text file into the enclosing directory.
 
 ## Part 3: Short-Read Assembly with SPAdes
 SPAdes is a popular genome assembler designed specifically for small genomes and short-read data (like Illumina).
