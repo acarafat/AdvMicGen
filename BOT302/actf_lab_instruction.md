@@ -31,25 +31,36 @@ Before we run our assembly, let's get familiar with a few basic UNIX commands. T
 ### Task:
 
 # 1. Inspect raw input files for assembly
+```
 cd /nfs5/ACTF/Course/ltpb_s26/data/week02_W
 ls
+```
 
 # 2. Go back to your home folder
+```
 cd ~
+```
 
 # 3. Create a directory for today's lab and move into it
+```
 mkdir sequence_assembly
 cd sequence_assembly
+```
+
 ## Part 3: Short-Read Assembly with SPAdes
 SPAdes is a popular genome assembler designed specifically for small genomes and short-read data (like Illumina).
-> **Instructor Note:** The paths below (`/path/to/reads/...`) are placeholders.
+> **Instructor Note:** The paths below (`/path/to/reads/...`) are placeholders. Replace it with actual raw input from data folder, i.e. `/nfs5/ACTF/Course/ltpb_s26/data/week02_W`
 1. **Run the SPAdes Assembler:** We will provide SPAdes with our forward (_R1) and reverse (_R2) Illumina reads.
+```
 salloc -N 4 # Checking out four nodes
 spades.py -1 /path/to/reads/illumina_R1.fastq.gz -2 /path/to/reads/illumina_R2.fastq.gz -o spades_output
+```
 2. **Wait for the assembly to finish:** Assembly is computationally intensive and may take several minutes.
 3. **Check your output:**
+```
 cd spades_output
 ls
+```
 Look for `assembly_graph.gfa` (for Bandage) and `contigs.fasta` (the assembled DNA sequences).
 ## Part 4: Visualizing and Transferring the Assembly Graph
 Since we cannot view graphics in the terminal, we must transfer the .gfa file to your personal computer.
@@ -87,9 +98,9 @@ We use quantitative metrics to evaluate assemblies:
 - **N50:** A measure of contiguity. The length of the shortest contig at 50% of the total assembly length. **Higher = More Continuous.**
 ### Run QUAST:
 Return to your terminal and ensure you are in the `sequence_assembly` directory:
-
+```
 quast.py spades_output/contigs.fasta /path/to/shared/data/flye_assembly.fasta -o quast_results
-
+```
 # View the results
 cat quast_results/report.txt
 Locate the rows for **Total length** and **N50** in the table.
