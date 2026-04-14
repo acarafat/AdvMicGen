@@ -72,7 +72,7 @@ cd activity_2_directory_treasure_hunt
 less instructions.txt
 tree
 ```
-
+![Alt text](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/little_brother.png?raw=true)
 
 ## Part 3: Short-Read Assembly with SPAdes
 SPAdes is a popular genome assembler designed specifically for small genomes and short-read data (like Illumina).
@@ -146,4 +146,8 @@ Include the images of both your SPAdes and Flye plots in your report and answer 
 3. **Interpreting N50:** Which technology resulted in a more contiguous assembly? Does this match your visual observation in Bandage?
 4. **Repeats:** Why do short Illumina reads struggle with repetitive DNA sequences?
 
+**Illumina Assembly Bandage Plot:**
+![Illumina Bandage](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/graph.png?raw=true)
 
+**Nanopore Assembly Bandage Plot:**
+![Nanopore Bandage](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/nanopore_assembly.png?raw=true)
