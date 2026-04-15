@@ -8,7 +8,7 @@ To perform sequence assembly, we will use a high-performance computing (HPC) clu
 ### 1.2 Connect to the Command Line
 Depending on your operating system, follow the steps below to access the server's command line:
 #### For Windows Users:
-1. Download and install [PuTTY](https://www.putty.org/).
+1. Download and install [PuTTY](https://putty.org/index.html).
 
 ![https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture1.png?raw=true](https://github.com/acarafat/AdvMicGen/blob/main/BOT302/Picture1.png?raw=true)
 
