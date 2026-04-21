@@ -151,7 +151,7 @@ We use quantitative metrics to evaluate assemblies:
 Return to your terminal and ensure you are in the `sequence_assembly` directory:
 ```
 quast.py spades_output/contigs.fasta -o quast_shortread_results
-quast.py ~/../../data/week02_W/long_only_assem/flye_assembly.fasta -o quast_longread_results
+quast.py ~/../../data/week02_W/long_only_assem/assembly.fasta -o quast_longread_results
 ```
 
 # View the results
